@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox Tutorial</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .container {
+        display: flex;
+        /* display: inline-flex; */
+        /* Flexbox properties: properties that affect all children and are set in the flex container or a parent element and the properties that affect individual child are set to flex items separately*/
+
+        /* Parent properties first: affect the layour of all children in our flex container or parent */
+
+        /* flex direction: row (default), row-reverse, column, coumn reverser. Most cases we would use flex direction to override this particular default  */
+        flex-direction: row;
+
+        /* flex-wrap: nowrap (default), wrap, wrap-reverse, 
+        nowrap when there is not enough espace, it will need to scrow
+         wrap when there is not enough espace, it will start a new line, imagine it in a navbar
+         wrap-reverse when there is not enough space, it will start a new line in reverse*/
+        flex-wrap: wrap;
+
+        /* justify content: responsible for horizontal aligment 
+        flex-start (default)
+        flex-end shift to the other side and flip the order
+        space-between first and the last item will sit all the way to the edge of the container, with space in between the items
+        space-around will have margin in the first and last item, with double margin beetwen items
+        space-evenly
+        center*/
+        justify-content: flex-start;
+
+        /* Align-items: responsible for vertical aligment, need to set the height for the container
+        strech (default) 
+        flex-start box are align in the top of the container
+        flex-end box are align in the bottom of the container
+        center
+        baseline use in a navbar with a logo
+        */
+        height: 300px;
+        height: 40vh;
+        align-items: flex-start;
+
+        /* align-content:  
+        strech(default)
+        flex-end rows sitting in the bottom
+        flex-strat rows sitting in the top
+        center
+        space around
+        space-between*/
+        align-content: stretch;
+      }
+
+      .container-1 {
+        height: 800px;
+        border: 5px solid blue;
+        display: flex;
+        flex-direction: column; /* main axis changed to vertical direction */
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      .box-1 {
+        /* All children haver order 0 by default */
+        order: 2;
+      }
+      .box-2 {
+        order: 1;
+        width: 300px;
+
+        /* flex-shrink: shrink to make space for the rest of the items, the proportion of the shrink of an item sets the flex shrink factor of flex item  
+        all chindren by default has value 1 */
+        flex-shrink: 1;
+      }
+      .box-5 {
+        order: -1;
+        /* align-self: move a single box in a different direction, same property values as align-items*/
+        align-self: flex-start;
+      }
+      .box {
+        /* flex-grow: proporty that allow to fill out the space in container, by default value all the children has value 0 */
+        flex-grow: 1;
+
+        flex-shrink: 0;
+
+        /* flex-basis:  responsible for base values, the base vlue of the item
+        it need to make sure the box sizing is set border-box in CSS
+        if you have the padding, i's not applied to the actual width of the element'*/
+        flex-basis: 150px;
+
+        /* shortchut for flex: 1º grow 2º shrink 3º basis */
+        flex: 0 0 calc(25% - 1rem);
+      }
+      .box-3 {
+        flex-grow: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <h2>logo</h2>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link">home</a></li>
+        <li><a href="#about" class="nav-link">about</a></li>
+        <li><a href="#contect" class="nav-link">contact</a></li>
+      </ul>
+    </nav>
+    <!--parent = flex-containter -->
+    <div class="container">
+      <!-- childern = flex-items -->
+      <div class="box box-1">1</div>
+      <div class="box box-2">2</div>
+      <div class="box box-3">3</div>
+      <div class="box box-4">4</div>
+      <div class="box box-5">5</div>
+      <!-- <div class="box generic">G</div>
+      <div class="box generic">G</div>
+      <div class="box generic">G</div>
+      <div class="box generic">G</div>
+      <div class="box generic">G</div> -->
+    </div>
+    <div class="container-1">
+      <div class="box box-1">1</div>
+      <div class="box box-2">2</div>
+      <div class="box box-3">3</div>
+      <div class="box box-4">4</div>
+      <div class="box box-5">5</div>
+    </div>
+    <a href="banner.html">banner html </a>
+  </body>
+</html>
